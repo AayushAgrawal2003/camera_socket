@@ -28,8 +28,14 @@ def recv_n(sock, n):
     return data
 
 while True:
+    # Read camera index first
+    cam_index_bytes = recv_n(client_socket, 4)
+    if cam_index_bytes is None:
+        break
+    cam_index = int.from_bytes(cam_index_bytes, 'big')
+
     if raw_mode:
-        # Receive raw frame shape
+        # Receive frame shape and data
         h = int.from_bytes(recv_n(client_socket, 4), 'big')
         w = int.from_bytes(recv_n(client_socket, 4), 'big')
         c = int.from_bytes(recv_n(client_socket, 4), 'big')
@@ -49,9 +55,13 @@ while True:
             break
 
         frame = cv2.imdecode(np.frombuffer(data, dtype=np.uint8), cv2.IMREAD_COLOR)
+        # print(frame.shape)
 
-    # cv2.imshow("Received (Press q to quit)", frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    # Show window named by camera index
+    cv2.imshow(f"Camera {cam_index}", frame)
+    # print(f"Got data for {cam_index}")
+
+    if cv2.waitKey(1) == ord('q'):
         break
 
 client_socket.close()

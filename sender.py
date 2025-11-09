@@ -50,7 +50,7 @@ with dai.Pipeline() as pipeline:
             client_socket.send(len(data).to_bytes(4, 'big'))
             client_socket.send(data)
 
-        cv2.imshow("Sending Video", frame)
+        # cv2.imshow("Sending Video", frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
