@@ -3,11 +3,9 @@
 Current Support Single Camera raw and compressed
 
 Installation:
-
 git clone https://github.com/luxonis/depthai-core.git && cd depthai-core
 python3 -m venv venv
 source venv/bin/activate
-# Installs library and requirements
 python3 examples/python/install_requirements.py
 
 ---- OR ----
