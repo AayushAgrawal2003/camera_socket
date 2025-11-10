@@ -20,7 +20,7 @@ You can install the necessary dependencies either by cloning the repository or b
 
 2.  **Clone the repository and install requirements:**
     ```bash
-    git clone [https://github.com/luxonis/depthai-core.git](https://github.com/luxonis/depthai-core.git) && cd depthai-core
+    git clone https://github.com/luxonis/depthai-core.git && cd depthai-core
     python3 -m venv venv
     source venv/bin/activate
     python3 examples/python/install_requirements.py
@@ -77,7 +77,3 @@ This will create viewing URLs:
 
   * `LocalIP:8002/view/all` | **All** camera feeds
   * `LocalIP:8002/view/x` | **Individual** camera feeds (where `x` = cam\_id)
-
-> ### **Reference**
->
-> This code can be used as a reference to see how to **unpack and process the raw data**.
