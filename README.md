@@ -24,15 +24,19 @@ You can install the necessary dependencies either by cloning the repository or b
     python3 -m venv venv
     source venv/bin/activate
     python3 examples/python/install_requirements.py
+    pip install -r requirements.txt
+
     ```
 
 ### Option 2: Using `pip`
 
 ```bash
 pip install depthai --force-reinstall
+pip install -r requirements.txt
 ````
 
 -----
+
 
 ## Run Instructions
 
