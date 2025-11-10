@@ -1,50 +1,83 @@
 # camera_socket
 
-Current Support Single Camera raw and compressed
-
 ## Installation
-git clone https://github.com/luxonis/depthai-core.git && cd depthai-core
-python3 -m venv venv
-source venv/bin/activate
-python3 examples/python/install_requirements.py
 
----- OR ----
+You can install the necessary dependencies either by cloning the repository or by using `pip`.
 
+### Option 1: Using `depthai-core` Repository
+
+1.  **Create and activate a virtual environment:**
+    * **Linux/macOS:**
+        ```bash
+        python3 -m venv venv
+        source venv/bin/activate
+        ```
+    * **Windows:**
+        ```bash
+        python3 -m venv venv
+        venv\Scripts\activate
+        ```
+
+2.  **Clone the repository and install requirements:**
+    ```bash
+    git clone [https://github.com/luxonis/depthai-core.git](https://github.com/luxonis/depthai-core.git) && cd depthai-core
+    python3 -m venv venv
+    source venv/bin/activate
+    python3 examples/python/install_requirements.py
+    ```
+
+### Option 2: Using `pip`
+
+```bash
 pip install depthai --force-reinstall
+````
+
+-----
+
+## Run Instructions
 
 
+For **high-throughput systems**,  a thread si deployed for each camera.
 
-## Run Instructions Single Camera
-python test_rec.py \
-python sender.py --raw / For Uncompressed \
-python sender.py / For JPEG Compression
+### Simple JPG Encoded API
 
-## Run Multi Camera 
-python test_rec_multi.py \
-python multi.py --raw / For Uncompressed \
-python multi.py / For JPEG Compression 
+To set up a simple JPEG-encoded API and a test gnork server, run:
 
-## Creating an API
-For high throughput system deploys a thread for each camera \
-To create a simple JPG encoded API you can just run \
-python API/create_and_publish.py \
-This should also run a gnork server for test \
-You can now view data simply in the browser.
- 
-"LocalIP:8001/stream/0", \
-"LocalIP:8001/stream/1", \
-"LocalIP:8001/stream/x", \
-x = cam_id
+```bash
+python API/create_and_publish.py
+```
 
-If you want to push through raw data \
-python API/create_and_publish.py --raw \ 
-Since its raw data you will need to read using a custom decoder: \
+Access the streams in your browser at:
 
-## To run a sample visualiser since raw data cant be directly visualised
-python API/rec_test.py \
-This should create 5 URLs: \
-LocalIP:8002/view/all | All camera feeds  \
-LocalIP:8002/view/x   | x = cam_id
-### This code can be used for reference to see how to unpack and process the data.
+  * `LocalIP:8001/stream/0`
+  * `LocalIP:8001/stream/1`
+  * `LocalIP:8001/stream/x` (where `x` is the camera ID)
 
+### Raw Data API
 
+To push raw data, run the script with the `--raw` flag:
+
+```bash
+python API/create_and_publish.py --raw
+```
+
+> **Note:** Since this is raw data, you will need to read it using a custom decoder.
+
+-----
+
+## Sample Visualizer (For Raw Data)
+
+Since raw data cannot be directly visualized, run this sample visualizer:
+
+```bash
+python API/rec_test.py
+```
+
+This will create viewing URLs:
+
+  * `LocalIP:8002/view/all` | **All** camera feeds
+  * `LocalIP:8002/view/x` | **Individual** camera feeds (where `x` = cam\_id)
+
+> ### **Reference**
+>
+> This code can be used as a reference to see how to **unpack and process the raw data**.
