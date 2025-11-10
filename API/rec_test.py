@@ -41,6 +41,7 @@ def generate_single(cam_id):
     while True:
         try:
             frame = next(gen)
+            # Raw bits passed until here beyond this point whatever encoded is needed can be used.
             ret, jpeg = cv2.imencode('.jpg', frame)
             if ret:
                 yield (b"--frame\r\n"

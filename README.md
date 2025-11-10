@@ -29,7 +29,7 @@ For high throughput system deploys a thread for each camera \
 To create a simple JPG encoded API you can just run \
 python API/create_and_publish.py \
 This should also run a gnork server for test \
-You can now view data simply in the browser \
+You can now view data simply in the browser.
  
 "LocalIP:8001/stream/0", \
 "LocalIP:8001/stream/1", \
@@ -39,9 +39,12 @@ x = cam_id
 If you want to push through raw data \
 python API/create_and_publish.py --raw \ 
 Since its raw data you will need to read using a custom decoder: \
+
+## To run a sample visualiser since raw data cant be directly visualised
 python API/rec_test.py \
 This should create 5 URLs: \
 LocalIP:8002/view/all | All camera feeds  \
-LocalIP:8002/view/x   | x = cam_id 
+LocalIP:8002/view/x   | x = cam_id
+### This code can be used for reference to see how to unpack and process the data.
 
 
