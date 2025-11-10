@@ -25,21 +25,22 @@ python multi.py --raw / For Uncompressed \
 python multi.py / For JPEG Compression 
 
 ## Creating an API
-To create a simple JPG encoded API you can just run 
-python API/create_and_publish.py
-This should also run a gnork server for test 
-You can now view data simply in the browser 
+To create a simple JPG encoded API you can just run \
+python API/create_and_publish.py \
+This should also run a gnork server for test \
+You can now view data simply in the browser \
  
-"LocalIP:8001/stream/0",
-"LocalIP:8001/stream/1",
-"LocalIP:8001/stream/x",
+"LocalIP:8001/stream/0", \
+"LocalIP:8001/stream/1", \
+"LocalIP:8001/stream/x", \
 x = cam_id
 
-If you want to push through raw data
-python API/create_and_publish.py --raw
-Since its raw data you will need to read using a custom decoder: 
-python API/rec_test.py
-This should create 5 URLs:
-LocalIP:8002/view/all | All camera feeds
-LocalIP:8002/view/x   | x = cam_id
+If you want to push through raw data \
+python API/create_and_publish.py --raw \ 
+Since its raw data you will need to read using a custom decoder: \
+python API/rec_test.py \
+This should create 5 URLs: \
+LocalIP:8002/view/all | All camera feeds  \
+LocalIP:8002/view/x   | x = cam_id 
+
 
