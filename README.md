@@ -25,6 +25,7 @@ python multi.py --raw / For Uncompressed \
 python multi.py / For JPEG Compression 
 
 ## Creating an API
+For high throughput system deploys a thread for each camera \
 To create a simple JPG encoded API you can just run \
 python API/create_and_publish.py \
 This should also run a gnork server for test \
